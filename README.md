@@ -83,34 +83,6 @@ A professional web application for managing medicine reminders, patients, doctor
 - `backend.js` - Node.js Express backend server
 - `database.sql` - MySQL database schema
 
-## API Endpoints
-
-The application provides the following API endpoints:
-
-### Patients
-- `GET /api/patients` - Get all patients
-- `GET /api/patients/:id` - Get a specific patient
-- `POST /api/patients` - Create a new patient
-- `PUT /api/patients/:id` - Update a patient
-- `DELETE /api/patients/:id` - Delete a patient
-
-### Doctors
-- `GET /api/doctors` - Get all doctors
-- `GET /api/doctors/:id` - Get a specific doctor
-- `POST /api/doctors` - Create a new doctor
-- `PUT /api/doctors/:id` - Update a doctor
-- `DELETE /api/doctors/:id` - Delete a doctor
-
-### Reminders
-- `GET /api/reminders` - Get all reminders
-- `POST /api/reminders` - Create a new reminder
-- `PUT /api/reminders/:id/complete` - Mark a reminder as complete
-
-### Prescriptions
-- `GET /api/prescriptions` - Get all prescriptions
-
-### Dashboard
-- `GET /api/dashboard/stats` - Get dashboard statistics
 
 ## License
 
@@ -118,7 +90,7 @@ MIT
 
 ## Author
 
-[Your Name]
+Vishnu Prasad B
 
 ## Acknowledgements
 
