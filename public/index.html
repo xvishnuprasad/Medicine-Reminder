@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Reminder | git init    </title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-pills"></i>
+            <span>MediRemind</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#dashboard" class="active"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+            <li><a href="#patients"><i class="fas fa-user-injured"></i> <span>Patients</span></a></li>
+            <li><a href="#reminders"><i class="fas fa-bell"></i> <span>Reminders</span></a></li>
+            <li><a href="#doctors"><i class="fas fa-user-md"></i> <span>Doctors</span></a></li>
+            <li><a href="#nurses"><i class="fas fa-user-nurse"></i> <span>Nurses</span></a></li>
+            <li><a href="#rooms"><i class="fas fa-door-open"></i> <span>Rooms</span></a></li>
+            <li><a href="#prescriptions"><i class="fas fa-prescription"></i> <span>Prescriptions</span></a></li>
+            <li><a href="#pharmacy"><i class="fas fa-prescription-bottle-med"></i> <span>Pharmacy</span></a></li>
+            <li><a href="#bills"><i class="fas fa-file-invoice-dollar"></i> <span>Bills</span></a></li>
+            <li><a href="#health-records"><i class="fas fa-notes-medical"></i> <span>Records</span></a></li>
+            <li><a href="intro.html"><i class="fas fa-home"></i> <span>Welcome</span></a></li>
+        </ul>
+        <div class="user-profile">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard">
+            <h1>Dashboard <span>Overview</span></h1>
+            
+            <!-- Floating Pills Animation -->
+            <div class="floating-pills">
+                <div class="pill"></div>
+                <div class="pill"></div>
+                <div class="pill"></div>
+                <div class="pill"></div>
+                <div class="pill"></div>
+                <div class="capsule"></div>
+                <div class="capsule"></div>
+                <div class="capsule"></div>
+                <div class="capsule"></div>
+                <div class="capsule"></div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Total Patients</h3>
+                    <p id="totalPatients">0</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> <span>12%</span> from last month
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3588/3588693.png" alt="Patient Icon" class="dashboard-illustration">
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Active Doctors</h3>
+                    <p id="activeDoctors">0</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> <span>5%</span> from last month
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3775/3775209.png" alt="Doctor Icon" class="dashboard-illustration">
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Active Nurses</h3>
+                    <p id="activeNurses">0</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-equals"></i> <span>6%</span> change
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3775/3775232.png" alt="Nurse Icon" class="dashboard-illustration">
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Pending Reminders</h3>
+                    <p id="pendingReminders">0</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-down"></i> <span>7%</span> from last month
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2645/2645220.png" alt="Reminder Icon" class="dashboard-illustration">
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-prescription"></i>
+                    <h3>Active Prescriptions</h3>
+                    <p id="activePrescriptions">0</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up"></i> <span>3%</span> from last month
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4352/4352443.png" alt="Prescription Icon" class="dashboard-illustration">
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Pending Bills</h3>
+                    <p id="pendingBills">0</p>
+                    <div class="stat-trend status-warning">
+                        <i class="fas fa-arrow-up"></i> <span>14%</span> from last month
+                    </div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2300/2300425.png" alt="Bill Icon" class="dashboard-illustration">
+                </div>
+            </div>
+
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <h3><i class="fas fa-calendar-check"></i> Today's Schedule</h3>
+                    <div class="summary-content">
+                        <p class="empty-state" id="todayScheduleEmpty">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png" alt="No Schedule" style="width: 80px; opacity: 0.7; margin-bottom: 1rem;">
+                            <br>No appointments scheduled for today
+                        </p>
+                        <ul class="schedule-list" id="todayScheduleList"></ul>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Critical Reminders</h3>
+                    <div class="summary-content">
+                        <p class="empty-state" id="criticalRemindersEmpty">No critical reminders</p>
+                        <ul class="reminder-list" id="criticalRemindersList"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients" class="section">
+            <h2><i class="fas fa-user-injured"></i> Patient Management</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddPatientModal()">
+                    <i class="fas fa-plus"></i> Add New Patient
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="patientSearch" placeholder="Search patients...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="patientsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Patient rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Reminders Section -->
+        <section id="reminders" class="section">
+            <div class="reminder-header-container">
+                <h2><i class="fas fa-bell"></i> Medicine Reminders</h2>
+                <img src="https://cdn-icons-png.flaticon.com/512/4856/4856862.png" alt="Medication Reminder" class="reminder-header-illustration">
+            </div>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddReminderModal()">
+                    <i class="fas fa-plus"></i> Add New Reminder
+                </button>
+                <select id="reminderFilter" class="filter-select">
+                    <option value="all">All Reminders</option>
+                    <option value="today">Today</option>
+                    <option value="thisWeek">This Week</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+            </div>
+            
+            <div id="remindersList" class="reminders-container">
+                <!-- Empty state illustration will be added dynamically when no reminders exist -->
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="section">
+            <h2><i class="fas fa-user-md"></i> Doctor Management</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddDoctorModal()">
+                    <i class="fas fa-plus"></i> Add New Doctor
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="doctorSearch" placeholder="Search doctors...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="doctorsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Doctor rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Nurses Section -->
+        <section id="nurses" class="section">
+            <h2><i class="fas fa-user-nurse"></i> Nurse Management</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddNurseModal()">
+                    <i class="fas fa-plus"></i> Add New Nurse
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="nurseSearch" placeholder="Search nurses...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="nursesTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Shift</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Nurse rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Rooms Section -->
+        <section id="rooms" class="section">
+            <h2><i class="fas fa-door-open"></i> Room Management</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddRoomModal()">
+                    <i class="fas fa-plus"></i> Add New Room
+                </button>
+                <select id="roomStatusFilter" class="filter-select">
+                    <option value="">All Rooms</option>
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Maintenance">Maintenance</option>
+                </select>
+            </div>
+            
+            <div class="table-container">
+                <table id="roomsTable">
+                    <thead>
+                        <tr>
+                            <th>Room #</th>
+                            <th>Type</th>
+                            <th>Floor</th>
+                            <th>Status</th>
+                            <th>Capacity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Room rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Prescriptions Section -->
+        <section id="prescriptions" class="section">
+            <h2><i class="fas fa-prescription"></i> Prescriptions</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddPrescriptionModal()">
+                    <i class="fas fa-plus"></i> Add New Prescription
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="prescriptionSearch" placeholder="Search prescriptions...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="prescriptionsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Medication</th>
+                            <th>Dosage</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Prescription rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pharmacy Section -->
+        <section id="pharmacy" class="section">
+            <h2><i class="fas fa-prescription-bottle-med"></i> Pharmacy</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddPharmacyModal()">
+                    <i class="fas fa-plus"></i> Add New Medication
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="pharmacySearch" placeholder="Search medications...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="pharmacyTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Drug Name</th>
+                            <th>Patient</th>
+                            <th>Dosage</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Pharmacy rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Bills Section -->
+        <section id="bills" class="section">
+            <h2><i class="fas fa-file-invoice-dollar"></i> Billing</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddBillModal()">
+                    <i class="fas fa-plus"></i> Create New Bill
+                </button>
+                <select id="billStatusFilter" class="filter-select">
+                    <option value="">All Bills</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Overdue">Overdue</option>
+                </select>
+            </div>
+            
+            <div class="table-container">
+                <table id="billsTable">
+                    <thead>
+                        <tr>
+                            <th>Bill #</th>
+                            <th>Patient</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Bill rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Health Records Section -->
+        <section id="health-records" class="section">
+            <h2><i class="fas fa-notes-medical"></i> Health Records</h2>
+            
+            <div class="action-bar">
+                <button class="btn primary" onclick="showAddHealthRecordModal()">
+                    <i class="fas fa-plus"></i> Add New Record
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="healthRecordSearch" placeholder="Search patient records...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="healthRecordsTable">
+                    <thead>
+                        <tr>
+                            <th>Record #</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Diagnosis</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Health Records rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Patient Modal -->
+    <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Patient</h2>
+            <form id="addPatientForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddPatientModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Patient</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3304/3304567.png" alt="Patient Registration" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Reminder Modal -->
+    <div id="addReminderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Reminder</h2>
+            <form id="addReminderForm">
+                <div class="form-group">
+                    <label for="patientId">Patient</label>
+                    <select id="patientId" name="patientId" required>
+                        <option value="">Select Patient</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Reminder Message</label>
+                    <textarea id="message" name="message" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" name="dueDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reminderTime">Time</label>
+                    <input type="time" id="reminderTime" name="reminderTime" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddReminderModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Reminder</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588748.png" alt="Medical Reminder" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Nurse Modal -->
+    <div id="addNurseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Nurse</h2>
+            <form id="addNurseForm">
+                <div class="form-group">
+                    <label for="nurseFirstName">First Name</label>
+                    <input type="text" id="nurseFirstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="nurseLastName">Last Name</label>
+                    <input type="text" id="nurseLastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+                <div class="form-group">
+                    <label for="nursePhone">Phone Number</label>
+                    <input type="tel" id="nursePhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="shift">Shift</label>
+                    <select id="shift" name="shift" required>
+                        <option value="">Select Shift</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Night">Night</option>
+                        <option value="Rotating">Rotating</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddNurseModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Nurse</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3775/3775168.png" alt="Nurse" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Room Modal -->
+    <div id="addRoomModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Room</h2>
+            <form id="addRoomForm">
+                <div class="form-group">
+                    <label for="roomNumber">Room Number</label>
+                    <input type="text" id="roomNumber" name="roomNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Room Type</label>
+                    <select id="roomType" name="roomType" required>
+                        <option value="">Select Type</option>
+                        <option value="Standard">Standard</option>
+                        <option value="ICU">ICU</option>
+                        <option value="Surgery">Surgery</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Private">Private</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <input type="number" id="floor" name="floor" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomStatus">Status</label>
+                    <select id="roomStatus" name="status" required>
+                        <option value="Available">Available</option>
+                        <option value="Occupied">Occupied</option>
+                        <option value="Maintenance">Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="capacity">Capacity</label>
+                    <input type="number" id="capacity" name="capacity" min="1" value="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddRoomModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Room</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3010/3010995.png" alt="Hospital Room" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Bill Modal -->
+    <div id="addBillModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Bill</h2>
+            <form id="addBillForm">
+                <div class="form-group">
+                    <label for="billPatientId">Patient</label>
+                    <select id="billPatientId" name="patientId" required>
+                        <option value="">Select Patient</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="billDate">Bill Date</label>
+                    <input type="date" id="billDate" name="billDate" required>
+                </div>
+                <div class="form-group bill-items-container">
+                    <label>Bill Items</label>
+                    <div id="billItems">
+                        <div class="bill-item">
+                            <input type="text" name="itemDescription[]" placeholder="Description" required>
+                            <input type="number" name="itemAmount[]" placeholder="Amount" step="0.01" required>
+                            <button type="button" class="btn remove-item"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn" id="addItemBtn"><i class="fas fa-plus"></i> Add Item</button>
+                </div>
+                <div class="form-group">
+                    <label for="totalAmount">Total Amount</label>
+                    <input type="number" id="totalAmount" name="totalAmount" step="0.01" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="paymentStatus">Payment Status</label>
+                    <select id="paymentStatus" name="paymentStatus">
+                        <option value="Pending">Pending</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Overdue">Overdue</option>
+                    </select>
+                </div>
+                <div class="form-group payment-method-container">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" name="paymentMethod">
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Debit Card">Debit Card</option>
+                        <option value="Insurance">Insurance</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddBillModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Bill</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/2300/2300386.png" alt="Medical Bill" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Health Record Modal -->
+    <div id="addHealthRecordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Health Record</h2>
+            <form id="addHealthRecordForm">
+                <div class="form-group">
+                    <label for="recordPatientId">Patient</label>
+                    <select id="recordPatientId" name="patientId" required>
+                        <option value="">Select Patient</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recordDoctorId">Doctor</label>
+                    <select id="recordDoctorId" name="doctorId" required>
+                        <option value="">Select Doctor</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis">Diagnosis</label>
+                    <textarea id="diagnosis" name="diagnosis" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="treatment">Treatment</label>
+                    <textarea id="treatment" name="treatment" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddHealthRecordModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Record</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588574.png" alt="Health Records" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Pharmacy Modal -->
+    <div id="addPharmacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Medication</h2>
+            <form id="addPharmacyForm">
+                <div class="form-group">
+                    <label for="drugName">Drug Name</label>
+                    <input type="text" id="drugName" name="drugName" required>
+                </div>
+                <div class="form-group">
+                    <label for="pharmacyPatientId">Patient</label>
+                    <select id="pharmacyPatientId" name="patientId" required>
+                        <option value="">Select Patient</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dosage">Dosage</label>
+                    <input type="text" id="dosage" name="dosage" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date</label>
+                    <input type="date" id="expiryDate" name="expiryDate">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddPharmacyModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Medication</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/4352/4352112.png" alt="Pharmacy Medication" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Doctor Modal -->
+    <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Doctor</h2>
+            <form id="addDoctorForm">
+                <div class="form-group">
+                    <label for="doctorFirstName">First Name</label>
+                    <input type="text" id="doctorFirstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorLastName">Last Name</label>
+                    <input type="text" id="doctorLastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">Specialization</label>
+                    <input type="text" id="specialization" name="specialization" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorPhone">Phone Number</label>
+                    <input type="tel" id="doctorPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorEmail">Email</label>
+                    <input type="email" id="doctorEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctorAddress">Address</label>
+                    <textarea id="doctorAddress" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="doctorLicense">License Number</label>
+                    <input type="text" id="doctorLicense" name="license" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddDoctorModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Doctor</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/3775/3775209.png" alt="Doctor" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Add Prescription Modal -->
+    <div id="addPrescriptionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Prescription</h2>
+            <form id="addPrescriptionForm">
+                <div class="form-group">
+                    <label for="prescriptionPatientId">Patient</label>
+                    <select id="prescriptionPatientId" name="patientId" required>
+                        <option value="">Select Patient</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prescriptionDoctorId">Doctor</label>
+                    <select id="prescriptionDoctorId" name="doctorId" required>
+                        <option value="">Select Doctor</option>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drugName">Medication Name</label>
+                    <input type="text" id="drugName" name="drugName" required>
+                </div>
+                <div class="form-group">
+                    <label for="prescriptionDosage">Dosage</label>
+                    <input type="text" id="prescriptionDosage" name="dosage" placeholder="e.g., 10mg twice daily" required>
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency</label>
+                    <select id="frequency" name="frequency" required>
+                        <option value="">Select Frequency</option>
+                        <option value="Once daily">Once daily</option>
+                        <option value="Twice daily">Twice daily</option>
+                        <option value="Three times daily">Three times daily</option>
+                        <option value="Four times daily">Four times daily</option>
+                        <option value="Every 4 hours">Every 4 hours</option>
+                        <option value="Every 6 hours">Every 6 hours</option>
+                        <option value="Every 8 hours">Every 8 hours</option>
+                        <option value="Every 12 hours">Every 12 hours</option>
+                        <option value="As needed">As needed</option>
+                        <option value="Weekly">Weekly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (days)</label>
+                    <input type="number" id="duration" name="duration" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="prescriptionNotes">Special Instructions</label>
+                    <textarea id="prescriptionNotes" name="notes" rows="3" placeholder="e.g., Take with food"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeAddPrescriptionModal()">Cancel</button>
+                    <button type="submit" class="btn primary">Save Prescription</button>
+                </div>
+            </form>
+            <img src="https://cdn-icons-png.flaticon.com/512/4352/4352443.png" alt="Prescription" class="modal-illustration">
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
